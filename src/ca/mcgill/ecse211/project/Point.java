@@ -1,5 +1,6 @@
 package ca.mcgill.ecse211.project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +27,17 @@ public class Point {
    * @return a list of points
    */
   public static List<Point> makePointsFromString(String s) {
-    return null; // TODO
+    List<Point> result = new ArrayList<Point>();
+    
+    s = s.replaceAll(" ", "").replaceAll("\\(", "").replaceAll("\\),", "\\)");
+    
+    for (var fragment: s.split("\\)")) {
+      var xy = fragment.split(",");
+      System.out.println("x, y = " + xy[0] + ", " + xy[1]);
+      result.add(new Point(Double.parseDouble(xy[0]), Double.parseDouble(xy[1])));
+    }
+    
+    return result;
   }
   
   @Override
