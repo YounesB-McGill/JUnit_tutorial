@@ -20,6 +20,12 @@ public class TestPoint {
     assertEquals(expected, actual);
 
     // TODO Test edge cases
+    expected = List.of();
+    actual = Point.makePointsFromString("");
+    assertEquals(expected, actual);
+    
+    actual = Point.makePointsFromString(null);
+    assertEquals(expected, actual);
   }
   
   /** Helper method to create a Point. */
