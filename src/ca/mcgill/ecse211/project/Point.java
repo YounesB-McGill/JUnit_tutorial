@@ -29,11 +29,14 @@ public class Point {
   public static List<Point> makePointsFromString(String s) {
     List<Point> result = new ArrayList<Point>();
     
+    if (s == null || !s.contains(")")) {
+      return result;
+    }
+    
     s = s.replaceAll(" ", "").replaceAll("\\(", "").replaceAll("\\),", "\\)");
     
     for (var fragment: s.split("\\)")) {
       var xy = fragment.split(",");
-      System.out.println("x, y = " + xy[0] + ", " + xy[1]);
       result.add(new Point(Double.parseDouble(xy[0]), Double.parseDouble(xy[1])));
     }
     
